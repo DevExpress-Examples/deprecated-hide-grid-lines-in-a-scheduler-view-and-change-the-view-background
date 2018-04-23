@@ -1,0 +1,42 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling" 
+        xmlns:dxschv="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/visual" 
+        x:Class="CustomViewStyleExample.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+
+    <!--region #CellControlStyle-->
+    <Window.Resources>
+        <Style x:Key="CellControl.Style" TargetType="{x:Type dxschv:CellControl}">
+            <Setter Property="BottomBorderThickness" Value="0" />
+            <Setter Property="LeftBorderThickness" Value="0" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="SelectedBackground" Value="White" />
+        </Style>
+        <Style TargetType="{x:Type dxsch:DayView}">
+            <Setter Property="CellStyle" Value="{StaticResource CellControl.Style}" />
+        </Style>
+        <Style TargetType="{x:Type dxsch:WorkWeekView}">
+            <Setter Property="CellStyle" Value="{StaticResource CellControl.Style}" />
+        </Style>
+        <Style TargetType="{x:Type dxsch:WeekView}">
+            <Setter Property="CellStyle" Value="{StaticResource CellControl.Style}" />
+        </Style>
+        <Style TargetType="{x:Type dxsch:MonthView}">
+            <Setter Property="CellStyle" Value="{StaticResource CellControl.Style}" />
+        </Style>
+        <Style TargetType="{x:Type dxsch:TimelineView}">
+            <Setter Property="CellStyle" Value="{StaticResource CellControl.Style}" />
+        </Style>
+    </Window.Resources>
+    <!--endregion #CellControlStyle-->
+    <Grid>
+        
+        <dxsch:SchedulerControl/>
+        
+    </Grid>
+</Window>
